@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giannis Diamantopoulos Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--card:#101010;--line:#1f1f1f;--txt:#f1f1f1;--mut:#a3a3a3;--pur:#b620e0;--mag:#ff2bd6;--yel:#ffd400}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.stk{font-family:'Instrument Serif',serif;font-weight:400;letter-spacing:-.02em;line-height:.95}
+
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(10,10,10,.8);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+header .wrap{height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:500;font-size:14px;letter-spacing:-.01em;user-select:none;cursor:pointer}
+.logo .dot{width:36px;height:36px;border-radius:50%;padding:2px;background:linear-gradient(135deg,var(--pur),var(--yel));flex-shrink:0}
+.logo .dot i{display:flex;width:100%;height:100%;border-radius:50%;background:#0a0a0a center/cover;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-style:italic;font-size:16px}
+nav{display:flex;gap:4px;align-items:center}
+nav a{padding:7px 14px;border-radius:99px;font-size:13px;color:var(--mut)}
+nav a:hover{color:#fff;background:#181818}
+nav a.cta{background:#fff;color:#000;font-weight:500;margin-left:6px}
+@media(max-width:720px){nav a:not(.cta){display:none}}
+
+/* hero */
+.hero{padding:76px 0 0}
+.banner{position:relative;display:grid;grid-template-columns:1.6fr .6fr;align-items:center;gap:40px;padding:0 0 64px;border-bottom:1px solid var(--line)}
+.banner::before{content:"";position:absolute;right:-6%;top:-35%;width:620px;height:620px;background:radial-gradient(circle,rgba(182,32,224,.26),transparent 65%);pointer-events:none}
+.banner::after{content:"";position:absolute;right:-12%;bottom:-40%;width:520px;height:520px;background:radial-gradient(circle,rgba(255,212,0,.10),transparent 65%);pointer-events:none}
+.banner>*{position:relative;z-index:1}
+.kicker{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:30px;background:none;border:0;padding:0;border-radius:0}
+.kicker::before{content:"";width:32px;height:2px;background:linear-gradient(90deg,var(--pur),var(--yel))}
+.banner h1{font-family:'Inter',sans-serif;font-size:min(7vw,92px);line-height:.95;letter-spacing:-.055em;font-weight:600;text-transform:none}
+.banner h1 span{display:block}
+.banner h1 .a{font-weight:300}
+.banner h1 .c{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.03em;font-size:1.12em;background:linear-gradient(90deg,#d66bf5,var(--yel));-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:6px}
+.photoWrap{display:flex;justify-content:center}
+.photo{width:min(260px,60vw);aspect-ratio:1;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--pur),var(--yel));box-shadow:0 0 80px rgba(182,32,224,.35)}
+#photo{width:100%;height:100%;border-radius:50%;background:#101010 center/cover;display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-style:italic;font-size:76px;color:#fff}
+@media(max-width:860px){.banner{grid-template-columns:1fr;gap:28px;padding-bottom:44px}.banner h1{font-size:min(11.5vw,64px)}.photoWrap{order:-1;justify-content:flex-start}.photo{width:110px}#photo{font-size:38px}}
+
+.pillars{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);gap:0;margin-top:0}
+.pill{padding:34px 0 38px;border:0;border-radius:0;background:none;color:inherit}
+.pill+.pill{padding-left:40px;border-left:1px solid var(--line)}
+.pill h3{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.pill.v h3{color:var(--yel)}.pill.e h3{color:#d66bf5}
+.pill p{margin-top:10px;font-size:19px;font-weight:300;color:#d6d6d6;max-width:420px;opacity:1}
+@media(max-width:700px){.pillars{grid-template-columns:1fr}.pill+.pill{padding-left:0;border-left:0;border-top:1px solid var(--line)}}
+
+/* sections */
+section.sec{padding:84px 0 0}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.sh .l{display:flex;align-items:baseline;gap:18px}
+.sh .n{font-size:13px;font-weight:500;letter-spacing:.1em;color:var(--yel);background:none;border:0;box-shadow:none;padding:0;font-family:'Inter',sans-serif}
+.sh h2{font-size:clamp(34px,5vw,58px);font-weight:400;color:var(--txt);-webkit-text-stroke:0}
+.note{color:var(--mut);max-width:620px;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;transition:.25s;display:block}
+.card:hover{border-color:#5a2a78;transform:translateY(-2px);box-shadow:none}
+.thumb{aspect-ratio:16/10;background:linear-gradient(135deg,#1c1024,#0d0d0d 70%);background-size:cover;background-position:center;position:relative;display:flex;align-items:center;justify-content:center}
+.play{width:52px;height:52px;border-radius:50%;background:#fff;color:#000;border:0;display:flex;align-items:center;justify-content:center;transition:.2s;box-shadow:0 0 0 7px rgba(255,255,255,.12)}
+.card:hover .play{transform:scale(1.08)}
+.badge{position:absolute;top:12px;left:12px;font-size:10px;font-weight:500;letter-spacing:.14em;background:rgba(0,0,0,.7);border:1px solid #2a2a2a;color:#ddd;padding:4px 10px;border-radius:99px}
+.card .body{padding:14px 18px 18px}
+.card h3{font-size:16px;font-weight:500;letter-spacing:-.01em}
+.card p{font-size:14px;color:var(--mut);margin-top:2px}
+.proj .thumb{aspect-ratio:16/9}
+.proj .more{margin-top:10px;font-size:13px;color:var(--yel);font-weight:400}
+.empty{border:1px dashed #2f2f2f;border-radius:16px;padding:36px;text-align:center;color:var(--mut)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;border:1px solid var(--line);border-radius:20px;padding:36px;background:var(--card)}
+.contact h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:40px;letter-spacing:-.02em;line-height:1}
+.contact .mail{display:inline-flex;gap:12px;align-items:center;margin-top:20px;padding:10px 14px;border-radius:12px;background:#0a0a0a;border:1px solid var(--line);font-size:15px;font-weight:400;word-break:break-all}
+.contact .mail button{background:#1f1f1f;color:#fff;border:1px solid #2f2f2f;border-radius:8px;padding:4px 10px;font-size:12px;font-weight:400}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.links a{padding:8px 14px;border-radius:99px;border:1px solid var(--line);font-size:13px;color:var(--mut);font-weight:400}
+.links a:hover{border-color:var(--pur);color:#fff}
+.fld{margin-bottom:14px}
+.fld label{display:block;font-size:11px;font-weight:500;color:var(--mut);margin-bottom:6px;text-transform:uppercase;letter-spacing:.14em}
+input,textarea,select{width:100%;background:#0a0a0a;border:1px solid #2a2a2a;border-radius:12px;padding:11px 14px;color:#fff;font:inherit;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--pur)}
+textarea{min-height:120px;resize:vertical}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.b1,.b2{border-radius:99px;padding:11px 22px;font-weight:500;font-size:14px;border:1px solid transparent}
+.b1{background:#fff;color:#000}.b2{background:transparent;color:#fff;border-color:#333}
+.b1:hover{background:#e8e8e8;filter:none}.b2:hover{border-color:#666}
+@media(max-width:800px){.contact{grid-template-columns:1fr;padding:24px;gap:26px}}
+footer{margin-top:80px;border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:13px}
+
+/* detail */
+#detail{display:none;padding:44px 0 100px}
+#detail .back{color:var(--mut);font-weight:600}
+#detail .back:hover{color:var(--yel)}
+#detail h1{margin-top:22px;font-size:clamp(44px,8vw,96px);color:var(--txt)}
+#detail .sum{margin-top:18px;font-size:20px;color:#cfcfcf;max-width:700px}
+#detail .cover{margin-top:30px;width:100%;max-height:480px;object-fit:cover;border-radius:22px;border:1px solid var(--line)}
+#detail .content{max-width:760px;margin-top:36px}
+#detail .content h2{font-size:28px;margin:38px 0 10px;font-weight:800;letter-spacing:-.02em}
+#detail .content p{color:#d2d2d2;margin-bottom:14px;white-space:pre-wrap}
+#detail .content img{width:100%;border-radius:16px;margin:16px 0;border:1px solid var(--line)}
+#detail .content .vid{aspect-ratio:16/9;margin:18px 0;border-radius:16px;overflow:hidden}
+#detail .content .vid iframe{width:100%;height:100%;border:0}
+#detail .content a.lnk{display:inline-block;margin:6px 0 14px;padding:10px 18px;border-radius:99px;background:var(--pur);font-weight:700}
+
+/* modal + admin */
+.ov{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
+.vbox{width:100%;max-width:920px;aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden;position:relative}
+.vbox.tall{max-width:360px;aspect-ratio:9/16;max-height:88vh}
+.vbox iframe{width:100%;height:100%;border:0}
+.xbtn{position:absolute;top:10px;right:10px;z-index:3;width:34px;height:34px;border-radius:50%;border:0;background:rgba(0,0,0,.8);color:#fff}
+.dlg{width:100%;max-width:620px;background:#141414;border:1px solid #333;border-radius:20px;padding:24px;margin:auto}
+.dlg h3{font-size:22px;margin-bottom:18px;font-weight:800}
+.act{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+.prev{width:100%;max-height:160px;object-fit:cover;border-radius:12px;margin-bottom:8px;border:1px solid #333}
+.brow{display:grid;grid-template-columns:110px 1fr auto;gap:8px;margin-bottom:8px;align-items:start}
+.brow .ctl{display:flex;gap:4px}
+.brow .ctl button,.sm{background:#262626;color:#fff;border:1px solid #3a3a3a;border-radius:8px;padding:5px 9px;font-size:12px}
+.addb{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.adm{display:none}
+body.admin .adm{display:inline-flex}
+.ctrls{position:absolute;top:10px;right:10px;z-index:5;display:none;gap:6px}
+body.admin .ctrls{display:flex}
+.ctrls button{width:32px;height:32px;border-radius:50%;border:0;background:rgba(0,0,0,.85);color:#fff}
+.ctrls button:hover{background:var(--pur)}
+.bar{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:70;background:#000;border:2px solid var(--yel);border-radius:99px;padding:8px 10px;display:none;gap:6px;box-shadow:0 10px 40px rgba(0,0,0,.7);flex-wrap:wrap;justify-content:center;max-width:94vw}
+body.admin .bar{display:flex}
+.bar button{background:#222;color:#fff;border:0;border-radius:99px;padding:8px 14px;font-size:13px;font-weight:700}
+.bar button.p{background:var(--yel);color:#000}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#fff;color:#000;padding:9px 18px;border-radius:99px;font-weight:700;z-index:99;font-size:14px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="logo" id="logo"><span class="dot"><i id="logoImg">GM</i></span><span id="logoName"></span></div>
+  <nav id="nav"></nav>
+</div></header>
+
+<div id="home">
+  <div class="wrap hero">
+    <div class="banner">
+      <div>
+        <span class="kicker" id="kicker"></span>
+        <h1 class="stk"><span class="a">Giannis</span><span class="b">Diamantopoulos</span><span class="c">Portfolio</span></h1>
+      </div>
+      <div class="photoWrap"><div class="photo"><div id="photo"></div></div></div>
+    </div>
+    <div class="pillars">
+      <div class="pill v"><h3>Video Editing</h3><p id="pv"></p></div>
+      <div class="pill e"><h3>Software Development</h3><p id="pe"></p></div>
+    </div>
+  </div>
+  <div id="sections"></div>
+
+  <section class="sec" id="contact"><div class="wrap">
+    <div class="sh"><div class="l"><span class="n" id="contactN"></span><h2 class="stk">Contact</h2></div></div>
+    <div class="contact">
+      <div>
+        <h3 id="cTitle">Επικοινωνία</h3>
+        <div class="mail"><span id="mailShow"></span><button onclick="copyMail()">Αντιγραφή</button></div>
+        <div class="links" id="links"></div>
+      </div>
+      <form id="cform">
+        <div class="fld"><label>Όνομα</label><input id="cn" required></div>
+        <div class="fld"><label>Το email σου</label><input id="ce" type="email" required></div>
+        <div class="fld"><label>Μήνυμα</label><textarea id="cm" required></textarea></div>
+        <div class="btns"><button type="button" class="b1" onclick="sendMail('gmail')">Άνοιγμα στο Gmail</button><button type="button" class="b2" onclick="sendMail('mailto')">Άλλη εφαρμογή mail</button></div>
+      </form>
+    </div>
+  </div></section>
+</div>
+
+<div id="detail"><div class="wrap">
+  <a href="#/" class="back">← Πίσω</a>
+  <h1 class="stk" id="dTitle"></h1>
+  <p class="sum" id="dSum"></p>
+  <button class="sm adm" style="margin-top:14px" id="dEdit">✎ Επεξεργασία σελίδας</button>
+  <img class="cover" id="dCover" style="display:none" alt="">
+  <div class="content" id="dContent"></div>
+</div></div>
+
+<footer><div class="wrap" id="foot"></div></footer>
+
+<div class="bar" id="bar">
+  <button class="p" onclick="editProfile()">✎ Προφίλ</button>
+  <button onclick="exportData()">⬇ Export data.json</button>
+  <button onclick="document.getElementById('imp').click()">⬆ Import</button>
+  <button onclick="resetData()">↺ Reset</button>
+  <button onclick="setAdmin(false)">Έξοδος</button>
+  <input type="file" id="imp" accept=".json" hidden>
+</div>
+
+<script>
+/* ================= ΑΡΧΙΚΑ ΔΕΔΟΜΕΝΑ (τα αλλάζεις και από το Admin) ================= */
+const DEFAULT = {
+  profile:{
+    name:"Giannis Diamantopoulos", handle:"GiannisMasterio",
+    kicker:"Video Editor · ECE Student",
+    editing:"Reels, TikTok, YouTube και διαφημιστικά βίντεο.",
+    engineering:"Σχεδίαση και υλοποίηση software.",
+    email:"giannismasterio@gmail.com",
+    instagram:"https://instagram.com/masterakhs", youtube:"https://youtube.com/@GiannisMasterio", tiktok:"https://tiktok.com/@prismartagency",
+    photo:""
+  },
+  sections:[
+    {id:"others",title:"For Other People",note:"",type:"videos",items:[
+      {id:"v1",title:"YouTube edit",url:"https://youtu.be/95E1wBMSzT8",desc:"",thumb:""},
+      {id:"v2",title:"Prismart Agency",url:"https://www.tiktok.com/@prismartagency/video/7539164874505506070",desc:"",thumb:""},
+      {id:"v3",title:"Prismart Agency",url:"https://www.tiktok.com/@prismartagency/video/7507963710011362582",desc:"",thumb:""},
+      {id:"v4",title:"Prismart Agency",url:"https://www.tiktok.com/@prismartagency/video/7478284635911277846",desc:"",thumb:""},
+      {id:"v5",title:"Prismart Agency",url:"https://www.tiktok.com/@prismartagency/video/7539164874505506070",desc:"",thumb:""},
+      {id:"v6",title:"Prismart Agency",url:"https://www.tiktok.com/@prismartagency/video/7507963710011362582",desc:"",thumb:""},
+      {id:"v7",title:"Prismart Agency",url:"https://www.tiktok.com/@prismartagency/video/7478284635911277846",desc:"",thumb:""},
+      {id:"v8",title:"Prismart Agency",url:"https://www.tiktok.com/@prismartagency/video/7539164874505506070",desc:"",thumb:""},
+      {id:"v9",title:"Prismart Agency",url:"https://www.tiktok.com/@prismartagency/video/7507963710011362582",desc:"",thumb:""},
+      {id:"v10",title:"Prismart Agency",url:"https://www.tiktok.com/@prismartagency/video/7478284635911277846",desc:"",thumb:""},
+    
+
+    ]},
+    {id:"personal",title:"Personal",note:"Παλιότερα βίντεο, από τα πρώτα μου χρόνια στο editing.",type:"videos",items:[]},
+    {id:"engineering",title:"Software",note:"",type:"projects",items:[]}
+  ]
+};
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,9);
+const ytId=u=>(u.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([\w-]{6,})/)||[])[1];
+const ttId=u=>(u.match(/tiktok\.com\/@[^/]+\/video\/(\d+)/)||[])[1];
+const kind=u=>ytId(u)?"YOUTUBE":ttId(u)?"TIKTOK":/instagram\.com/.test(u)?"INSTAGRAM":"LINK";
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.append(t);setTimeout(()=>t.remove(),2200)}
+
+/* ---------- store ---------- */
+let DATA, LOCAL=null;
+try{LOCAL=JSON.parse(localStorage.getItem('gm_data')||'null')}catch(e){}
+DATA=LOCAL||JSON.parse(JSON.stringify(DEFAULT));
+function save(){try{localStorage.setItem('gm_data',JSON.stringify(DATA))}catch(e){toast('Γέμισε ο χώρος αποθήκευσης — χρησιμοποίησε μικρότερες εικόνες')}render()}
+if(!LOCAL) fetch('data.json').then(r=>r.ok?r.json():null).then(d=>{if(d&&d.sections){DATA=d;render()}}).catch(()=>{});
+
+/* ---------- admin toggle: 5 κλικ στο λογότυπο ή #admin ---------- */
+let ADMIN=localStorage.getItem('gm_admin')==='1';
+function setAdmin(v){ADMIN=v;localStorage.setItem('gm_admin',v?'1':'0');document.body.classList.toggle('admin',v);render()}
+let clicks=0,ct;$("logo").onclick=()=>{location.hash="#/";clicks++;clearTimeout(ct);ct=setTimeout(()=>clicks=0,1800);if(clicks>=5){clicks=0;setAdmin(!ADMIN);toast(ADMIN?'Admin ON':'Admin OFF')}};
+if(location.hash==="#admin"){ADMIN=true;localStorage.setItem('gm_admin','1');location.hash="#/"}
+document.body.classList.toggle('admin',ADMIN);
+
+/* ---------- render ---------- */
+const sec=id=>DATA.sections.find(s=>s.id===id);
+function vCard(s,v){
+  const y=ytId(v.url), img=v.thumb||(y?`https://img.youtube.com/vi/${y}/hqdefault.jpg`:"");
+  return `<div class="card" data-open="${esc(v.url)}"><div class="ctrls"><button data-ev="${s.id}|${v.id}" title="Επεξεργασία">✎</button><button data-dv="${s.id}|${v.id}" title="Διαγραφή">✕</button></div>
+  <div class="thumb" ${img?`style="background-image:url('${esc(img)}')"`:""}><span class="badge">${kind(v.url)}</span><div class="play"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+  <div class="body"><h3>${esc(v.title)}</h3>${v.desc?`<p>${esc(v.desc)}</p>`:""}</div></div>`;
+}
+function pCard(s,p){
+  return `<a class="card proj" href="#/p/${p.id}"><div class="ctrls"><button data-ep="${s.id}|${p.id}" title="Επεξεργασία">✎</button><button data-dp="${s.id}|${p.id}" title="Διαγραφή">✕</button></div>
+  <div class="thumb" ${p.image?`style="background-image:url('${esc(p.image)}')"`:""}>${p.image?"":'<span class="badge">ΕΙΚΟΝΑ</span>'}</div>
+  <div class="body"><h3>${esc(p.title)}</h3>${p.summary?`<p>${esc(p.summary)}</p>`:""}<div class="more">Δες αναλυτικά →</div></div></a>`;
+}
+function render(){
+  const P=DATA.profile;
+  $("logoName").textContent=P.handle; const li=$("logoImg");li.style.backgroundImage=P.photo?`url('${P.photo}')`:"";li.textContent=P.photo?"":"GM";
+  $("kicker").textContent=P.kicker; $("pv").textContent=P.editing; $("pe").textContent=P.engineering;
+  const ph=$("photo"); ph.style.backgroundImage=P.photo?`url('${P.photo}')`:""; ph.textContent=P.photo?"":"GM";
+  $("foot").textContent=`© ${new Date().getFullYear()} ${P.name}`;
+  const visible=DATA.sections.filter(s=>ADMIN||s.items.length);
+  $("nav").innerHTML=visible.map(s=>`<a href="#${s.id}" onclick="jump('${s.id}');return false">${esc(s.title)}</a>`).join("")+`<a class="cta" href="#contact" onclick="jump('contact');return false">Contact</a>`;
+  $("sections").innerHTML=visible.map((s,i)=>{
+    const add=`<button class="b1 adm" data-add="${s.id}">+ ${s.type==="videos"?"Νέο βίντεο":"Νέο project"}</button> <button class="sm adm" data-es="${s.id}">✎ Τίτλος</button>`;
+    const body=s.items.length?`<div class="grid">${s.items.map(it=>s.type==="videos"?vCard(s,it):pCard(s,it)).join("")}</div>`:`<div class="empty">Δεν υπάρχει περιεχόμενο ακόμα. Πάτα "+ Νέο" από πάνω.</div>`;
+    return `<section class="sec" id="${s.id}"><div class="wrap"><div class="sh"><div class="l"><span class="n">0${i+1}</span><h2 class="stk">${esc(s.title)}</h2></div><div>${add}</div></div>
+    ${s.note&&s.items.length?`<p class="note">${esc(s.note)}</p>`:""}${body}</div></section>`;
+  }).join("");
+  $("contactN").textContent="0"+(visible.length+1);
+  $("mailShow").textContent=P.email;
+  $("links").innerHTML=[["Instagram",P.instagram],["YouTube",P.youtube],["TikTok",P.tiktok]].filter(x=>x[1]).map(x=>`<a href="${esc(x[1])}" target="_blank" rel="noopener">${x[0]} ↗</a>`).join("");
+  route();
+}
+function jump(id){if(location.hash.startsWith("#/p/"))location.hash="#/";setTimeout(()=>{const e=$(id);e&&e.scrollIntoView({behavior:"smooth"})},40)}
+
+/* ---------- events ---------- */
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-ev],[data-dv],[data-ep],[data-dp],[data-add],[data-es],[data-open]"); if(!t)return;
+  const d=t.dataset;
+  if(d.ev){e.stopPropagation();const[s,i]=d.ev.split("|");editVideo(s,i);return}
+  if(d.dv){e.stopPropagation();const[s,i]=d.dv.split("|");if(confirm("Διαγραφή;")){sec(s).items=sec(s).items.filter(x=>x.id!==i);save()}return}
+  if(d.ep){e.preventDefault();e.stopPropagation();const[s,i]=d.ep.split("|");editProject(s,i);return}
+  if(d.dp){e.preventDefault();e.stopPropagation();const[s,i]=d.dp.split("|");if(confirm("Διαγραφή;")){sec(s).items=sec(s).items.filter(x=>x.id!==i);save()}return}
+  if(d.add){sec(d.add).type==="videos"?editVideo(d.add):editProject(d.add);return}
+  if(d.es){editSection(d.es);return}
+  if(d.open)openVideo(d.open);
+});
+
+function openVideo(u){
+  const y=ytId(u),t=ttId(u);
+  if(!y&&!t){window.open(u,"_blank","noopener");return}
+  const src=y?`https://www.youtube-nocookie.com/embed/${y}?autoplay=1&rel=0`:`https://www.tiktok.com/embed/v2/${t}`;
+  const o=document.createElement("div");o.className="ov";
+  o.innerHTML=`<div class="vbox ${t?'tall':''}"><button class="xbtn">✕</button><iframe src="${src}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`;
+  const close=()=>{o.remove();document.removeEventListener("keydown",k)};const k=e=>{if(e.key==="Escape")close()};
+  o.onclick=e=>{if(e.target===o||e.target.className==="xbtn")close()};document.addEventListener("keydown",k);document.body.append(o);
+}
+
+/* ---------- contact ---------- */
+function copyMail(){navigator.clipboard&&navigator.clipboard.writeText(DATA.profile.email);toast("Αντιγράφηκε το email")}
+function sendMail(mode){
+  const f=$("cform");if(!f.reportValidity())return;
+  const subj=`Μήνυμα από το portfolio — ${$("cn").value}`;
+  const body=`Όνομα: ${$("cn").value}\nEmail: ${$("ce").value}\n\n${$("cm").value}`;
+  const to=DATA.profile.email;
+  if(mode==="gmail")window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`,"_blank","noopener");
+  else location.href=`mailto:${to}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+}
+
+/* ---------- route / detail ---------- */
+function findProject(id){for(const s of DATA.sections)if(s.type==="projects"){const p=s.items.find(x=>x.id===id);if(p)return[s,p]}return[]}
+function route(){
+  const m=location.hash.match(/^#\/p\/(.+)$/),[s,p]=m?findProject(m[1]):[];
+  if(!p){$("detail").style.display="none";$("home").style.display="block";return}
+  $("home").style.display="none";$("detail").style.display="block";
+  $("dTitle").textContent=p.title;$("dSum").textContent=p.summary||"";
+  const c=$("dCover");c.style.display=p.image?"block":"none";if(p.image)c.src=p.image;
+  $("dEdit").onclick=()=>editProject(s.id,p.id);
+  $("dContent").innerHTML=(p.blocks||[]).map(b=>{
+    if(b.t==="h2")return `<h2>${esc(b.v)}</h2>`;
+    if(b.t==="img")return `<img src="${esc(b.v)}" alt="">`;
+    if(b.t==="link")return `<a class="lnk" href="${esc(b.v)}" target="_blank" rel="noopener">${esc(b.label||b.v)} ↗</a>`;
+    if(b.t==="video"){const y=ytId(b.v);return y?`<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/${y}" allowfullscreen></iframe></div>`:`<a class="lnk" href="${esc(b.v)}" target="_blank" rel="noopener">Δες το βίντεο ↗</a>`}
+    return `<p>${esc(b.v)}</p>`}).join("");
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+
+/* ---------- CMS: forms ---------- */
+function readImg(file,max=1400){return new Promise(res=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);res(c.toDataURL("image/jpeg",.82))};im.src=r.result};r.readAsDataURL(file)})}
+
+function imgField(label,get,set){
+  const w=document.createElement("div");w.className="fld";
+  const draw=()=>{w.innerHTML=`<label>${label}</label>${get()?`<img class="prev" src="${esc(get())}">`:""}<input placeholder="Link εικόνας ή ανέβασε αρχείο" value="${get().startsWith('data:')?'':esc(get())}"><div style="margin-top:6px;display:flex;gap:6px"><button type="button" class="sm" data-up>⬆ Ανέβασμα</button>${get()?'<button type="button" class="sm" data-rm>Αφαίρεση</button>':""}<input type="file" accept="image/*" hidden></div>`;
+    const inp=w.querySelector("input:not([type=file])"),fi=w.querySelector("[type=file]");
+    inp.onchange=()=>{set(inp.value.trim());draw()};
+    w.querySelector("[data-up]").onclick=()=>fi.click();
+    fi.onchange=async()=>{if(fi.files[0]){set(await readImg(fi.files[0]));draw()}};
+    const rm=w.querySelector("[data-rm]");if(rm)rm.onclick=()=>{set("");draw()}};
+  draw();return w;
+}
+function textField(label,get,set,area,ph){const w=document.createElement("div");w.className="fld";w.innerHTML=`<label>${label}</label>`;const i=document.createElement(area?"textarea":"input");i.value=get()||"";i.placeholder=ph||"";i.oninput=()=>set(i.value);w.append(i);return w}
+function dialog(title,fields,onSave){
+  const o=document.createElement("div");o.className="ov";o.innerHTML=`<div class="dlg"><h3>${title}</h3><div id="fs"></div><div class="act"><button class="b2" data-c>Άκυρο</button><button class="b1" data-s>Αποθήκευση</button></div></div>`;
+  fields.forEach(f=>o.querySelector("#fs").append(f));
+  o.querySelector("[data-c]").onclick=()=>o.remove();
+  o.querySelector("[data-s]").onclick=()=>{if(onSave()!==false)o.remove()};
+  document.body.append(o);
+}
+function editVideo(sid,id){
+  const s=sec(sid),v=id?{...s.items.find(x=>x.id===id)}:{id:uid(),title:"",url:"",desc:"",thumb:""};
+  dialog(id?"Επεξεργασία βίντεο":"Νέο βίντεο",[
+    textField("Τίτλος",()=>v.title,x=>v.title=x),
+    textField("Link (YouTube / TikTok / Instagram)",()=>v.url,x=>v.url=x,false,"https://..."),
+    textField("Περιγραφή (προαιρετικό)",()=>v.desc,x=>v.desc=x),
+    imgField("Εξώφυλλο (προαιρετικό, χρήσιμο για TikTok)",()=>v.thumb,x=>v.thumb=x)
+  ],()=>{if(!v.title.trim()||!v.url.trim()){toast("Βάλε τίτλο και link");return false}
+    const i=s.items.findIndex(x=>x.id===v.id);i>=0?s.items[i]=v:s.items.unshift(v);save()});
+}
+function blocksField(arr){
+  const w=document.createElement("div");w.className="fld";
+  const types={h2:"Τίτλος",p:"Κείμενο",img:"Εικόνα",video:"Video (YT)",link:"Link"};
+  const draw=()=>{w.innerHTML=`<label>Περιεχόμενο σελίδας</label><div id="rows"></div><div class="addb">${Object.entries(types).map(([k,n])=>`<button type="button" class="sm" data-a="${k}">+ ${n}</button>`).join("")}</div>`;
+    const rows=w.querySelector("#rows");
+    arr.forEach((b,i)=>{const r=document.createElement("div");r.className="brow";
+      r.innerHTML=`<div style="font-size:12px;color:#a3a3a3;padding-top:10px">${types[b.t]}</div><div></div><div class="ctl"><button type="button" data-u>↑</button><button type="button" data-d>↓</button><button type="button" data-x>✕</button></div>`;
+      const cell=r.children[1];
+      if(b.t==="img"){const f=imgField("",()=>b.v,x=>b.v=x);f.querySelector("label").remove();cell.append(f)}
+      else{const inp=document.createElement(b.t==="p"?"textarea":"input");inp.value=b.v||"";inp.placeholder=b.t==="video"?"YouTube link":b.t==="link"?"https://...":"";inp.oninput=()=>b.v=inp.value;cell.append(inp);
+        if(b.t==="link"){const l=document.createElement("input");l.style.marginTop="6px";l.placeholder="Κείμενο κουμπιού";l.value=b.label||"";l.oninput=()=>b.label=l.value;cell.append(l)}}
+      r.querySelector("[data-u]").onclick=()=>{if(i>0){[arr[i-1],arr[i]]=[arr[i],arr[i-1]];draw()}};
+      r.querySelector("[data-d]").onclick=()=>{if(i<arr.length-1){[arr[i+1],arr[i]]=[arr[i],arr[i+1]];draw()}};
+      r.querySelector("[data-x]").onclick=()=>{arr.splice(i,1);draw()};
+      rows.append(r)});
+    w.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>{arr.push({t:b.dataset.a,v:""});draw()})};
+  draw();return w;
+}
+function editProject(sid,id){
+  const s=sec(sid),p=id?JSON.parse(JSON.stringify(s.items.find(x=>x.id===id))):{id:uid(),title:"",summary:"",image:"",blocks:[]};
+  dialog(id?"Επεξεργασία project":"Νέο project",[
+    textField("Τίτλος",()=>p.title,x=>p.title=x),
+    textField("Σύντομη περιγραφή",()=>p.summary,x=>p.summary=x,true),
+    imgField("Εικόνα (αυτή που πατιέται)",()=>p.image,x=>p.image=x),
+    blocksField(p.blocks)
+  ],()=>{if(!p.title.trim()){toast("Βάλε τίτλο");return false}
+    const i=s.items.findIndex(x=>x.id===p.id);i>=0?s.items[i]=p:s.items.unshift(p);save()});
+}
+function editSection(sid){
+  const s=sec(sid);dialog("Ενότητα",[
+    textField("Τίτλος",()=>s.title,x=>s.title=x),
+    textField("Σημείωση κάτω από τον τίτλο (προαιρετικό)",()=>s.note,x=>s.note=x,true)
+  ],()=>save());
+}
+function editProfile(){
+  const P=DATA.profile;dialog("Προφίλ",[
+    imgField("Logo / Φωτογραφία",()=>P.photo,x=>P.photo=x),
+    textField("Όνομα",()=>P.name,x=>P.name=x),
+    textField("Handle (πάνω αριστερά)",()=>P.handle,x=>P.handle=x),
+    textField("Κεφαλίδα (badge)",()=>P.kicker,x=>P.kicker=x),
+    textField("Video Editing — περιγραφή",()=>P.editing,x=>P.editing=x),
+    textField("Software — περιγραφή",()=>P.engineering,x=>P.engineering=x),
+    textField("Email",()=>P.email,x=>P.email=x),
+    textField("Instagram",()=>P.instagram,x=>P.instagram=x),
+    textField("YouTube",()=>P.youtube,x=>P.youtube=x),
+    textField("TikTok",()=>P.tiktok,x=>P.tiktok=x)
+  ],()=>save());
+}
+function exportData(){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(DATA,null,1)],{type:"application/json"}));a.download="data.json";a.click();toast("Κατέβηκε το data.json")}
+$("imp").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d.sections)throw 0;DATA=d;save();toast("Έγινε import")}catch{toast("Μη έγκυρο αρχείο")}};r.readAsText(f)};
+function resetData(){if(confirm("Επαναφορά στα αρχικά; Χάνονται οι αλλαγές σου.")){localStorage.removeItem('gm_data');DATA=JSON.parse(JSON.stringify(DEFAULT));render()}}
+
+render();
+</script>
+</body>
+</html>
