@@ -83,4 +83,4 @@ function route() {
   window.scrollTo(0, 0);
 }
 window.addEventListener("hashchange", route);
-fetch('data/content.json',{cache:'no-cache'}).then(r=>r.json()).then(c=>{D=adapt(c);P=D.profile;render();route()}).catch(()=>document.body.insertAdjacentHTML('beforeend','<p style="padding:40px">Δεν φόρτωσε το περιεχόμενο. Άνοιξε το site από server (Netlify/GitHub Pages), όχι με διπλό κλικ.</p>'));
+fetch('data/content.json',{cache:'no-cache'}).then(r=>r.json()).catch(()=>window.FALLBACK_CONTENT).then(c=>{D=adapt(c);P=D.profile;render();route()});
