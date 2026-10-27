@@ -71,6 +71,11 @@
   },
   "software": {
     "title": "My Personal Software Projects Github Link",
-    "note": "https://github.com/GiannisMasterio"
+    "note": "https://github.com/GiannisMasterio",
+    "items": [
+      {
+        "title": "ASAT ThrustStand Smart"
+      }
+    ]
   }
 }
