@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 media:
   input: images
   output: images
@@ -65,3 +66,6 @@ content:
               - { name: video, label: YouTube link, type: string }
               - { name: link_url, label: Link κουμπιού, type: string }
               - { name: link_label, label: Κείμενο κουμπιού, type: string }
+=======
+dsds
+>>>>>>> 8f936dbd46741d305d0f27d5237af2680c322df1
