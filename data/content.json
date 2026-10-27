@@ -70,7 +70,7 @@
     ]
   },
   "software": {
-    "title": "My Personal Software Projects Github Link",
+    "title": "My Personal Software Projects (Github Links)",
     "note": "https://github.com/GiannisMasterio",
     "items": [
       {
@@ -79,6 +79,18 @@
         "image": "images/Στιγμιότυπο οθόνης 2026-10-27 235622.png",
         "body": "Το ASAT ThrustStand Smart είναι ένα εξειδικευμένο λογισμικό που σχεδιάστηκε για τις ανάγκες της αεροδιαστημικής ομάδας ASAT. Ο βασικός του ρόλος είναι να επικοινωνεί με τους αισθητήρες του Thrust Stand, να συλλέγει τις μετρήσεις της ώσης (thrust) των κινητήρων και να τις απεικονίζει μέσα από ένα εύχρηστο περιβάλλον (GUI) σε πραγματικό χρόνο.\n\nΗ υλοποίηση έγινε κυρίως σε περιβάλλον C++. Μέσα από αυτό το project, κλήθηκα να αντιμετωπίσω προκλήσεις όπως η ακριβής καταγραφή δεδομένων (data logging), ο συγχρονισμός της επικοινωνίας ανάμεσα στο hardware και το software, και η ασφαλής διαχείριση των μετρήσεων χωρίς καθυστερήσεις (latency). Αποτελεί ένα σημαντικό δείγμα της δουλειάς μου στο software development, καθώς συνδέει τον κώδικα με πραγματικές εφαρμογές μηχανικής.",
         "link_url": "https://github.com/GiannisMasterio/ASAT-ThrustStand-Smart-2026"
+      },
+      {
+        "title": "ASAT Ground Station"
+      },
+      {
+        "title": "Masterio's Quantum Simulator"
+      },
+      {
+        "title": "ASAT New Website"
+      },
+      {
+        "title": "The Lord of The Ships"
       }
     ]
   }
