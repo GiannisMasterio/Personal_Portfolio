@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giannis Diamantopoulos — Portfolio</title>
+<meta name="description" content="Video Editor & Software Developer. Reels, TikTok, YouTube και software projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#/"><span class="ring"><i id="logoImg"></i></span><span id="logoName"></span></a>
+  <nav id="nav"></nav>
+</div></header>
+
+<main id="home">
+  <div class="wrap hero">
+    <div class="banner">
+      <div><span class="kicker" id="kicker"></span>
+        <h1 class="serif" id="h1"></h1></div>
+      <div class="photoWrap"><div class="ring"><i id="photo"></i></div></div>
+    </div>
+    <div class="pillars">
+      <div class="pill v"><h3>Video Editing</h3><p id="pv"></p></div>
+      <div class="pill e"><h3>Software Development</h3><p id="pe"></p></div>
+    </div>
+  </div>
+  <div id="sections"></div>
+  <section class="sec" id="contact"><div class="wrap">
+    <div class="sh"><span class="n" id="contactN"></span><h2 class="serif">Contact</h2></div>
+    <div class="contact">
+      <div><h3 class="serif">Επικοινωνία</h3>
+        <div class="mail"><span id="mailShow"></span><button onclick="copyMail()">Αντιγραφή</button></div>
+        <div class="links" id="links"></div></div>
+      <form id="cform">
+        <div class="fld"><label>Όνομα</label><input id="cn" required></div>
+        <div class="fld"><label>Το email σου</label><input id="ce" type="email" required></div>
+        <div class="fld"><label>Μήνυμα</label><textarea id="cm" required></textarea></div>
+        <div class="btns"><button type="button" class="b1" onclick="sendMail('gmail')">Άνοιγμα στο Gmail</button><button type="button" class="b2" onclick="sendMail('mailto')">Άλλη εφαρμογή mail</button></div>
+      </form>
+    </div>
+  </div></section>
+</main>
+
+<div id="detail"><div class="wrap">
+  <a href="#/" class="back">← Πίσω</a>
+  <h1 class="serif" id="dTitle"></h1><p class="sum" id="dSum"></p>
+  <img class="cover" id="dCover" style="display:none" alt="">
+  <div class="content" id="dContent"></div>
+</div></div>
+
+<footer><div class="wrap" id="foot"></div></footer>
+<script src="data/content.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
