@@ -1,9 +1,16 @@
-const D = window.SITE_CONTENT, P = D.profile, $ = id => document.getElementById(id);
+let D, P; const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const ytId = u => (u.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([\w-]{6,})/) || [])[1];
 const ttId = u => (u.match(/tiktok\.com\/@[^/]+\/video\/(\d+)/) || [])[1];
 const kind = u => ytId(u) ? "YOUTUBE" : ttId(u) ? "TIKTOK" : /instagram\.com/.test(u) ? "INSTAGRAM" : "LINK";
 const bg = u => u ? `style="background-image:url('${esc(u)}')"` : "";
+
+const slug = s => (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+function adapt(c) {
+  const sec = (id, type, k) => ({ id, type, title: k.title || id, note: k.note || "", items: (k.items || []).map((it, i) => type === "videos" ? { ...it, id: id + i } :
+    { ...it, id: slug(it.title) || id + i, blocks: [it.body && { t: "p", v: it.body }, ...(it.gallery || []).map(v => ({ t: "img", v })), it.video && { t: "video", v: it.video }, it.link_url && { t: "link", v: it.link_url, label: it.link_label }].filter(Boolean) }) });
+  return { profile: c.profile, sections: [sec("others", "videos", c.others || {}), sec("personal", "videos", c.personal || {}), sec("software", "projects", c.software || {})] };
+}
 function toast(m) { const t = document.createElement('div'); t.className = 'toast'; t.textContent = m; document.body.append(t); setTimeout(() => t.remove(), 2200) }
 
 const vCard = v => {
@@ -76,4 +83,4 @@ function route() {
   window.scrollTo(0, 0);
 }
 window.addEventListener("hashchange", route);
-render(); route();
+fetch('data/content.json',{cache:'no-cache'}).then(r=>r.json()).then(c=>{D=adapt(c);P=D.profile;render();route()}).catch(()=>document.body.insertAdjacentHTML('beforeend','<p style="padding:40px">Δεν φόρτωσε το περιεχόμενο. Άνοιξε το site από server (Netlify/GitHub Pages), όχι με διπλό κλικ.</p>'));

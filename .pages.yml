@@ -1,0 +1,67 @@
+media:
+  input: images
+  output: images
+content:
+  - name: site
+    label: Περιεχόμενο site
+    type: file
+    path: data/content.json
+    format: json
+    fields:
+      - name: profile
+        label: Προφίλ
+        type: object
+        fields:
+          - { name: logo, label: Logo (πάνω αριστερά), type: image }
+          - { name: photo, label: Φωτογραφία (hero), type: image }
+          - { name: name, label: Όνομα, type: string }
+          - { name: handle, label: Handle, type: string }
+          - { name: kicker, label: Υπότιτλος, type: string }
+          - { name: editing, label: Video Editing - περιγραφή, type: string }
+          - { name: engineering, label: Software - περιγραφή, type: string }
+          - { name: email, label: Email, type: string }
+          - name: links
+            label: Social links
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Όνομα, type: string }
+              - { name: url, label: Link, type: string }
+      - name: others
+        label: Βίντεο - For Other People
+        type: object
+        fields: &videos
+          - { name: title, label: Τίτλος ενότητας, type: string }
+          - { name: note, label: Σημείωση, type: text }
+          - name: items
+            label: Βίντεο
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Τίτλος, type: string }
+              - { name: url, label: Link (YouTube / TikTok / Instagram), type: string }
+              - { name: desc, label: Περιγραφή, type: string }
+              - { name: thumb, label: Εξώφυλλο (προαιρετικό), type: image }
+      - name: personal
+        label: Βίντεο - Personal
+        type: object
+        fields: *videos
+      - name: software
+        label: Software projects
+        type: object
+        fields:
+          - { name: title, label: Τίτλος ενότητας, type: string }
+          - { name: note, label: Σημείωση, type: text }
+          - name: items
+            label: Projects
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Τίτλος, type: string }
+              - { name: summary, label: Σύντομη περιγραφή, type: text }
+              - { name: image, label: Εικόνα, type: image }
+              - { name: body, label: Κείμενο, type: text }
+              - { name: gallery, label: Εικόνες, type: image, list: true }
+              - { name: video, label: YouTube link, type: string }
+              - { name: link_url, label: Link κουμπιού, type: string }
+              - { name: link_label, label: Κείμενο κουμπιού, type: string }
