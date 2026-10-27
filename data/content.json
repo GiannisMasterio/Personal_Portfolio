@@ -81,16 +81,19 @@
         "link_url": "https://github.com/GiannisMasterio/ASAT-ThrustStand-Smart-2026"
       },
       {
-        "title": "ASAT Ground Station"
+        "title": "ASAT Ground Station",
+        "image": "images/Στιγμιότυπο οθόνης 2026-10-28 000721.png"
       },
       {
-        "title": "Masterio's Quantum Simulator"
+        "title": "Masterio's Quantum Simulator",
+        "image": "images/Στιγμιότυπο οθόνης 2026-10-28 001826.png"
+      },
+      {
+        "title": "The Lord of The Ships",
+        "image": "images/Στιγμιότυπο οθόνης 2026-10-28 001917.png"
       },
       {
         "title": "ASAT New Website"
-      },
-      {
-        "title": "The Lord of The Ships"
       }
     ]
   }
