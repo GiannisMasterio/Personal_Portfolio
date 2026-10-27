@@ -20,7 +20,8 @@
     ]
   },
   "others": {
-    "title": "For Other People",
+    "title": "Video Editing Works",
+    "note": "Here is only a tiny fraction of video I have edited. I used to upload Youtube video during covid period which gained me experience but then I stopped for a while due to Panhellenic exams. Late, I returned for some time editing for Prismart Agency and Oshu Japanese producing tiktok style video. Now I seek to return in this old habit.",
     "items": [
       {
         "title": "Video for Personal Youtube Channel ",
@@ -28,35 +29,34 @@
       },
       {
         "title": "Video for Prismart Agency (1)",
-        "url": "https://www.tiktok.com/@prismartagency/video/7539164874505506070"
+        "url": "https://www.tiktok.com/@prismartagency/video/7539164874505506070",
+        "thumb": "images/Στιγμιότυπο οθόνης 2026-10-27 232508.png"
       },
       {
         "title": "Video for Oshu Japanese ",
-        "url": "https://www.tiktok.com/@oshu_japanese/video/7324758089608088865"
+        "url": "https://www.tiktok.com/@oshu_japanese/video/7324758089608088865",
+        "thumb": "images/Στιγμιότυπο οθόνης 2026-10-27 232711.png"
       },
       {
         "title": "Video for Prismart Agency (2)",
-        "url": "https://www.tiktok.com/@prismartagency/video/7478284635911277846"
+        "url": "https://www.tiktok.com/@prismartagency/video/7478284635911277846",
+        "thumb": "images/Στιγμιότυπο οθόνης 2026-10-27 232508.png"
       },
       {
         "title": "Video for Prismart Agency (3)",
-        "url": "https://www.tiktok.com/@prismartagency/video/7507963710011362582"
+        "url": "https://www.tiktok.com/@prismartagency/video/7507963710011362582",
+        "thumb": "images/Στιγμιότυπο οθόνης 2026-10-27 232508.png"
       },
       {
         "title": "Video for Prismart Agency (4)",
-        "url": "https://www.tiktok.com/@prismartagency/video/7578982779866713366"
+        "url": "https://www.tiktok.com/@prismartagency/video/7578982779866713366",
+        "thumb": "images/Στιγμιότυπο οθόνης 2026-10-27 232508.png"
       },
       {
         "title": "Video for Prismart Agency (5)",
-        "url": "https://www.tiktok.com/@prismartagency/video/7508770290009263382"
+        "url": "https://www.tiktok.com/@prismartagency/video/7508770290009263382",
+        "thumb": "images/Στιγμιότυπο οθόνης 2026-10-27 232508.png"
       }
-    ]
-  },
-  "personal": {
-    "title": "Personal",
-    "note": "Παλιότερα βίντεο, από τα πρώτα μου χρόνια στο editing.",
-    "items": [
-      {}
     ]
   },
   "software": {
