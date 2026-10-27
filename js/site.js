@@ -1,13 +1,21 @@
 let D, P; const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const ytId = u => (u.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([\w-]{6,})/) || [])[1];
-const ttId = u => (u.match(/tiktok\.com\/@[^/]+\/video\/(\d+)/) || [])[1];
+const ytId = u => (
+  typeof u === "string"
+    ? (u.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([\w-]{6,})/) || [])[1]
+    : undefined
+);
+
+const ttId = u => (
+  typeof u === "string"
+    ? (u.match(/tiktok\.com\/@[^/]+\/video\/(\d+)/) || [])[1]
+    : undefined
+);
 const kind = u => ytId(u) ? "YOUTUBE" : ttId(u) ? "TIKTOK" : /instagram\.com/.test(u) ? "INSTAGRAM" : "LINK";
 const bg = u => u ? `style="background-image:url('${esc(u)}')"` : "";
 
 const slug = s => (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-// Προστέθηκαν δίχτυα ασφαλείας (|| {}) για να μην κρασάρει αν λείπουν δεδομένα
 function adapt(c) {
   c = c || {}; 
   const sec = (id, type, k) => {
@@ -62,11 +70,35 @@ function render() {
   $("contactN").textContent = "0" + (vis.length + 1);
   $("mailShow").textContent = P.email || "";
   $("links").innerHTML = (P.links || []).filter(l => l.url).map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join("");
+  // Απόκρυψη όλων των ενοτήτων εκτός από την πρώτη
+ setTimeout(() => {
+    // Αλλάξαμε τον επιλογέα σε 'main .sec' για να περιλαμβάνει και το contact
+    const allSecs = document.querySelectorAll('main .sec');
+    allSecs.forEach((sec, index) => {
+        sec.style.display = index === 0 ? 'block' : 'none';
+    });
+    // Ενεργοποίηση του πρώτου tab στο μενού
+    const firstNav = document.querySelector('#nav a[data-jump]');
+    if (firstNav) firstNav.classList.add('active');
+  }, 0);
 }
 
 document.addEventListener("click", e => {
   const j = e.target.closest("[data-jump]");
-  if (j) { e.preventDefault(); if (location.hash.startsWith("#/p/")) location.hash = "#/"; setTimeout(() => $(j.dataset.jump)?.scrollIntoView({ behavior: "smooth" }), 40); return }
+  if (j) { 
+    e.preventDefault(); 
+    if (location.hash.startsWith("#/p/")) location.hash = "#/"; 
+    
+    // Κρύβουμε ΟΛΑ τα sections μέσα στο main (ώστε να πιάνει και το Contact)
+    document.querySelectorAll('main .sec').forEach(sec => sec.style.display = 'none');
+    
+    // Εμφανίζουμε τη σωστή ενότητα (π.χ. Software)
+    const targetId = j.dataset.jump;
+    const targetSec = $(targetId);
+    if (targetSec) targetSec.style.display = 'block';
+    
+    return; 
+  }
   const o = e.target.closest("[data-open]"); if (o) openVideo(o.dataset.open);
 });
 
