@@ -15,7 +15,19 @@ nav{display:flex;gap:4px;align-items:center}
 nav a{padding:7px 14px;border-radius:99px;font-size:13px;color:var(--mut)}
 nav a:hover{color:#fff;background:#181818}
 nav a.cta{background:#fff;color:#000;font-weight:500;margin-left:6px}
-@media(max-width:720px){nav{overflow-x:auto;scrollbar-width:none;max-width:70vw}nav a{white-space:nowrap;padding:7px 10px}.logo span:last-child{display:none}}
+@media(max-width:720px) {
+  nav {
+    overflow-x: auto;
+    max-width: 70vw;
+    /* Προαιρετικά: Σβήσε το scrollbar-width:none αν θέλεις να φαίνεται η μπάρα κύλισης */
+  }
+  nav a {
+    white-space: nowrap;
+    padding: 7px 10px;
+    flex-shrink: 0; /* ΑΥΤΟ ΛΥΝΕΙ ΤΗ ΣΥΜΠΙΕΣΗ */
+  }
+  .logo span:last-child { display: none }
+}
 .hero{padding:76px 0 0}
 .banner{position:relative;overflow:hidden;display:grid;grid-template-columns:1.6fr .6fr;align-items:center;gap:40px;padding-bottom:64px;border-bottom:1px solid var(--line)}
 .banner::before{content:"";position:absolute;right:-6%;top:-35%;width:620px;height:620px;background:radial-gradient(circle,rgba(182,32,224,.26),transparent 65%);pointer-events:none}
