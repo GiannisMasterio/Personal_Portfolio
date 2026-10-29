@@ -86,18 +86,22 @@
       },
       {
         "title": "ASAT Ground Station",
-        "image": "images/Στιγμιότυπο οθόνης 2026-10-28 000721.png"
+        "image": "images/Στιγμιότυπο οθόνης 2026-10-28 000721.png",
+        "link_url": "https://github.com/GiannisMasterio/ASAT-Ground-Station-2026"
       },
       {
         "title": "Masterio's Quantum Simulator",
-        "image": "images/Στιγμιότυπο οθόνης 2026-10-28 001826.png"
+        "image": "images/Στιγμιότυπο οθόνης 2026-10-28 001826.png",
+        "link_url": "https://github.com/GiannisMasterio/Masterio-Quantum-Simulator"
       },
       {
         "title": "The Lord of The Ships",
-        "image": "images/Στιγμιότυπο οθόνης 2026-10-28 001917.png"
+        "image": "images/Στιγμιότυπο οθόνης 2026-10-28 001917.png",
+        "link_url": "https://github.com/GiannisMasterio/The-Lord-Of-The-Ships"
       },
       {
-        "title": "ASAT New Website"
+        "title": "ASAT New Website",
+        "link_url": "https://github.com/GiannisMasterio/Asat-New-Website"
       }
     ]
   }
